@@ -21,4 +21,11 @@ jobs:
       - name: Check files
         run: |
           echo "Repository files:"
-          find . -maxdepth 2 -type f
+          find . -maxdepth 3 -type f
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -f docker/Dockerfile \
+            -t devsecops-playground:latest \
+            .
